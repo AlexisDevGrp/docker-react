@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t alexisdevgrp/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run alexisdevgrp/docker-react run npm test -- --coverage
